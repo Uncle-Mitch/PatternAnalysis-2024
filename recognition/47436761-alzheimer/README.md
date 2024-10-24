@@ -9,10 +9,10 @@ A Vision Transformer (ViT) adapts the transformer's encoder for image classifica
 Each layer applies multi-head self-attention to capture long-range dependencies between patches. The final embeddings are pooled, and a classification head predicts whether the image shows Alzheimer's disease or a normal brain. The model is trained using the [ADNI dataset](https://adni.loni.usc.edu/).
 
 ![Diagram of the ViT architecture model](images/vit_diagram.png)
-Diagram sourced from (Dosovitskiy, et al., 2020)
+Diagram sourced from [(Dosovitskiy et al., 2021)](#references)
 
 The ViT's core component is Multi-Head Self-Attention, which identifies relationships between image patches, much like how transformers link words in sequences. This attention mechanism captures dependencies across pixels, similar to how CNNs recognize spatial patterns in images.
-(Vaswani, et al., 2017).
+[(Vaswani et al., 2017)](#references).
 
 
 ## Dependencies 
@@ -33,8 +33,8 @@ conda activate torch
 
 ## Training The Model Yourself
 
-- Replace  `"TRAIN_DATA_PATH"` and `"TEST_DATA_PATH"` in `dataset.py` with the relevant paths to your dataset.
-It should have the following file structure.
+- Replace  `"TRAIN_DATA_PATH"` and `"TEST_DATA_PATH"` in `train.py` AND `predict.py` with the relevant paths to your dataset.
+It should have the following file structure:
 ```
 train/
     AD/
@@ -122,4 +122,11 @@ The test accuracy achieved by running `predict.py` was 73%. This shows a decent 
 
 The original ViT paper was trained on datasets with around 300M images, while our dataset was only about 30K images. This significant difference in dataset size highlights one of the key challenges of using transformer models for smaller datasets, as they typically perform best when trained on very large datasets.
 
-## Future Improvements
+## Reproducibility 
+
+The exact results may not be reproducable since a seed was not set and the results could be have minor variations. Similar results are expected if the same hyperparameters are used, along with the same hardware (UQ Rangpur Cluster).
+
+# References
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J. and Houlsby, N. (2021). An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. [online] arXiv.org. doi:https://doi.org/10.48550/arXiv.2010.11929.
+
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L. and Polosukhin, I. (2017). Attention Is All You Need. [online] arXiv.org. doi:https://doi.org/10.48550/arXiv.1706.03762.
