@@ -1,7 +1,5 @@
-from torchvision import datasets, transforms
 import torch.nn as nn
 import torch
-import torch.nn.functional as F
 
 
 class PatchEmbedding(nn.Module):
